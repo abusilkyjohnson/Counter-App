@@ -14,5 +14,14 @@ public class MainActivity extends AppCompatActivity {
 
         TextView startingNum = findViewById(R.id.startingNum);
 
+        int zeroNumStart = 0;
+        boolean buttonTrigger = false;
+
+        while(buttonTrigger)
+        {
+            zeroNumStart++;
+            Integer.toString(zeroNumStart);
+        }
+
     }
 }

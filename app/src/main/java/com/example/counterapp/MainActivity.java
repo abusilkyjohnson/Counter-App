@@ -10,7 +10,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    int zeroNumStart = 0;
+    int zeroNumStart;
+    boolean switcher = true;
 
 
     @Override
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button countButtVar = findViewById(R.id.countButt);
         TextView countingTextview = findViewById(R.id.startingNum);
+
 
 
         countButtVar.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int IncreaseCounter(){
+
         return ++zeroNumStart;
     }
 }

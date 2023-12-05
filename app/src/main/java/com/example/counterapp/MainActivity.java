@@ -10,37 +10,32 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    int zeroNumStart = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView startingNum = findViewById(R.id.startingNum);
-
-        int zeroNumStart = 0;
-        final boolean[] buttonTrigger = {false};
         Button countButtVar = findViewById(R.id.countButt);
+        TextView countingTextview = findViewById(R.id.startingNum);
+
 
         countButtVar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(buttonTrigger[0] == false)
-                {
-                    buttonTrigger[0] = true;
-                }
-                else if (buttonTrigger[0] == true)
-                {
-                    buttonTrigger[0] = false;
-                }
+
+                countingTextview.setText("" +IncreaseCounter());
+
             }
         });
 
 
-        while(buttonTrigger[0])
-        {
-            zeroNumStart++;
-            Integer.toString(zeroNumStart);
-        }
 
+    }
+
+    public int IncreaseCounter(){
+        return ++zeroNumStart;
     }
 }

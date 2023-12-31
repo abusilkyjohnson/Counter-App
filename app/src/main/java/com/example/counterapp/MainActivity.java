@@ -1,6 +1,7 @@
 package com.example.counterapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    int zeroNumStart;
-    boolean switcher = true;
-
-
+    AbuViewModel viewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,24 +19,24 @@ public class MainActivity extends AppCompatActivity {
 
         Button countButtVar = findViewById(R.id.countButt);
         TextView countingTextview = findViewById(R.id.startingNum);
-
+        viewModel = new ViewModelProvider(this).get(AbuViewModel.class);
 
 
         countButtVar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                countingTextview.setText("" +IncreaseCounter());
+                viewModel.IncreaseCounter();
+                countingTextview.setText("" + viewModel.getZeroNumStart());
 
             }
         });
 
+        //we need to put the text here again in view model so it show the original state/data that was saved
+        countingTextview.setText("" + viewModel.getZeroNumStart());
+
 
 
     }
 
-    public int IncreaseCounter(){
-
-        return ++zeroNumStart;
-    }
 }
